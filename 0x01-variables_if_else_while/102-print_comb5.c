@@ -1,49 +1,41 @@
 #include <stdio.h>
-
 /**
- * main - This program prints all possible combinations
- * of two two-digit numbers.
- * Return: 0.
+ * main - entry point
+ * Desc: Use `putchar` function to print number from 0001 to 9999
+ * Return: 0
  */
-
 int main(void)
 {
-	int l = '0';
-	int a;
-	int n;
-	int d;
+	int i, j;
+	int q, w, e, r;
 
-	while (l <= '9')
+	for (i = 0; i < 100; i++)
 	{
-		for (a = '0'; a <= '9'; a++)
+		q = i / 10;
+		w = i % 10;
+
+		for (j = 0; j < 100; j++)
 		{
-			n = '0';
+			e = j / 10;
+			r = j % 10;
 
-			while (n <= '9')
+			if (q < e || (q == e && w < r))
 			{
-				for (d = '0'; d <= '9'; d++)
-				{
-					if (l < n || (l == n && a < d))
-					{
-						putchar(l);
-						putchar(a);
-						putchar(' ');
-						putchar(n);
-						putchar(d);
+				putchar(q + '0');
+				putchar(w + '0');
+				putchar(32);
+				putchar(e + '0');
+				putchar(r + '0');
 
-						if (l != '9' || a != '8' ||
-						    n != '9' || d != '9')
-						{
-							putchar(',');
-							putchar(' ');
-						}
-					}
+				if (!(q == 9 && w == 8))
+				{
+					putchar(44);
+					putchar(32);
 				}
-				n++;
 			}
 		}
-		l++;
 	}
 	putchar('\n');
+
 	return (0);
 }
