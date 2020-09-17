@@ -3,8 +3,8 @@
 #include <time.h>
 
 /**
- * main - This program will assign a random number to the variable n
- * each time it is executed.
+ * main - This program will assign a random number to the
+ * variable n each time it is run, printing only the last digit.
  *
  * Return: 0.
  */
@@ -12,24 +12,26 @@
 int main(void)
 {
 	int n;
+	int d;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
-	if (n == 0)
-	{
-		printf("%d is zero\n", n);
-	}
+	d = n % 10;
 
-	else if (n > 0)
-	{
-		printf("%d is positive\n", n);
-	}
+	printf("Last digit of %d is %d and is ", n, d);
 
-	else
-	{
-		printf("%d is negative\n", n);
-	}
-
+		if (d > 5)
+		{
+			printf("greater than 5\n");
+		}
+		else if (d == 0)
+		{
+			printf("0\n");
+		}
+		else
+		{
+			printf("less than 6 and not 0\n");
+		}
 	return (0);
 }
