@@ -48,4 +48,6 @@ void print_triangle(int size);
 /* function that checks for uppercase character */
 int _isupper(int c);
 
+int _isdigit(int c);
+
 #endif /* _SAMPLE_HEADER_H_ */
