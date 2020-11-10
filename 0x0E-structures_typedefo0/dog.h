@@ -1,13 +1,11 @@
-#ifndef DJANGO_H
-#define DJANGO_H
-
+#ifndef STRUCTDOG_
+#define STRUCTDOG_
+#include <stdlib.h>
 /**
- * struct dog - The structure of the dog.
- * @name: The dog's name.
- * @age: The dog's age.
- * @owner: The dog owner's name.
- *
- * Description: It is the structure of an adorable puppy named Django.
+ * struct dog - Variables for dog description
+ * @name: Name of the dog
+ * @age: Age of the dog
+ * @owner: Owner's name
  */
 struct dog
 {
@@ -16,24 +14,28 @@ struct dog
 	char *owner;
 };
 
-
-
-/* Prototypes */
-
-typedef struct dog dog_t;
-
-int _putchar(char c);
-
-char *_strdup(char *str);
-
-char *_strcpy(char *dest, char *src);
-
+/* initializes a variable of type struct dog. */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
+/* prints a struct dog. */
 void print_dog(struct dog *d);
 
+/* Define a new type dog_t as a new name for the type struct dog. */
+typedef struct dog dog_t;
+
+/* creates a new dog. */
 dog_t *new_dog(char *name, float age, char *owner);
 
+#include "dog.h"
+/**
+ * free_dog - frees a dog
+ *
+ * @d: dog to free
+ *
+ * Return: void
+ */
+
+/* frees dogs. */
 void free_dog(dog_t *d);
 
 #endif
